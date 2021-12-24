@@ -16,7 +16,23 @@ router.get('/all',(request,response) =>{
             response.status(200).json(docs);
         }
     });
-})
+});
+
+router.get('/:invoiceId',(request,response) =>{
+    invoiceModel.findOne({
+        _id : request.params.invoiceId
+    },(err,invoice) => {
+        if(err){
+            //something went wrong
+            console.log('ERROR '+ err);
+            response.status(500).json({message:'Problem when reading the invoce'});
+        } else {
+            //everything is working
+            console.log('Invoce was found');
+            response.status(200).json(invoice);
+        }
+    });
+});
 
 
 //export content of this file - make public

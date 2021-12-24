@@ -41,6 +41,9 @@ app.use('/api/updateinvoice',require('./routes/update.js'))
 
 app.use('/api/deleteinvoice',require('./routes/delete.js'))
 
+app.get('*',(request,response) =>{
+    response.send("<h1>Error 404: Page not found!!</h1>");
+});
 //specifiy port number
 
 app.listen(3000,()=>{
