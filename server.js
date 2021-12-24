@@ -3,6 +3,7 @@ const express = require('express');
 const app =express();
 const path = require('path');
 const mongoose = require('mongoose');
+const bodyParser =require('body-parser');
 
 //connection to mangodb
 mongoose.connect(
@@ -20,9 +21,12 @@ mongoose.connection.on('error',(error) => {
 
 //if connection is successful
 mongoose.connection.once('open',() => {
-    console.log('Coonection to mongodb is successful');
+    console.log('Connection to mongodb Atlas is successful');
 });
 
+//body-parser enables app to handle input comes from web browser and stores as json object
+app.use(bodyParser.urlencoded({extended : false}));
+app.use(bodyParser.json());
 
 
 //static web server
@@ -40,5 +44,5 @@ app.use('/api/deleteinvoice',require('./routes/delete.js'))
 //specifiy port number
 
 app.listen(3000,()=>{
-    console.log('lisnening at localhost:3000');
+    console.log('listening at localhost:3000');
 });
