@@ -15,5 +15,9 @@
     "mongodb"
   ],
   "author": "Anil Kumar",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2",
+    "mongoose": "^6.1.3"
+  }
 }
