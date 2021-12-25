@@ -13,7 +13,7 @@ router.delete('/:invoiceId',(request,response) =>{
             response.status(500).json({message:'Problem removing a invoice'})
         } else {
             //everything is working
-            console.log('The invoce is removed from mongodb');
+            console.log('The invoice is removed from mongodb');
             response.status(200).json({message:'The invoice is removed from mangodb'})
         }
     });
