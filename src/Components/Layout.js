@@ -1,6 +1,9 @@
 import React from 'react'
 import CustomTextField from './CustomTextField';
 import CustomTextArea from './CustomTextArea';
+import ProductsAndPrices from './ProductsAndPricesListing';
+import FinalPrice from './FinalPrice';
+import InputDescriptionAndPrice from './InputDescriptionAndPrice';
 
 export default class Layout extends React.Component{
 
@@ -12,15 +15,40 @@ export default class Layout extends React.Component{
                 customerName: "",
                 customerAddress: "",
                 invoiceDescription: "",
+                termsAndConditions:"",
+                itemsListing:[
+                    {description: 'Green Shirt', price:10},
+                    {description: 'Red Shirt', price:10},
+                    {description: 'Black Shirt', price:10}
+                ],
+                descriptionVal:"",
+                priceVal:"",
             }
             this.textFieldsHandler= this.textFieldsHandler.bind(this);
+            this.buttonClick = this.buttonClick.bind(this);
         }
 
+        //gets user input
         textFieldsHandler( event ){
+
+            if(event.target.name ==='itemDescription'){
+                this.setState({descriptionVal: event.target.value});
+                console.log('Item Description: '+ this.state.descriptionVal);
+            }
+
+            if(event.target.name ==='itemPrice'){
+                this.setState({priceVal: event.target.value});
+                console.log('Item Price: '+ this.state.priceVal);
+            }
+
+            if(event.target.name ==='termsAndConditions'){
+                this.setState({termsAndConditions: event.target.value});
+                console.log('Terms And Conditions: '+ this.state.termsAndConditions);
+            }
 
             if(event.target.name ==='invoiceDescription'){
                 this.setState({invoiceDescription: event.target.value});
-                console.log('Invoice Description: ' + this.state.invoiceDescription);
+                console.log('Invoice Description: '+ this.state.invoiceDescription);
             }
 
             if(event.target.name ==='sellerName'){
@@ -43,15 +71,20 @@ export default class Layout extends React.Component{
                 console.log('Seller Name: ' + this.state.customerAddress);
             }
         }
+
+        buttonClick(){
+            console.log('You want to add item to the listing')
+        }
+
         render(){
             return(
                 <div>  
                     <CustomTextArea
-                        label ='Invoice Description'
+                        label = 'Invoice Description'
                         name = 'invoiceDescription'
                         val = {this.state.invoiceDescription}
                         inputHandler = {this.textFieldsHandler}
-                    /> 
+                    />
                     <CustomTextField 
                         customId='seller-name' 
                         label="Seller's name" 
@@ -59,7 +92,7 @@ export default class Layout extends React.Component{
                         name = "sellerName" 
                         val={this.state.sellerName}
                         inputHandler={this.textFieldsHandler}
-                        text='Enter the full seller name'
+                        // text='Enter the full seller name'
                     />  
 
                     <CustomTextField 
@@ -69,7 +102,7 @@ export default class Layout extends React.Component{
                         name = "sellerAddress" 
                         val={this.state.sellerAddress}
                         inputHandler={this.textFieldsHandler}
-                        text='Enter the full address'
+                        // text='Enter the full address'
                     />  
 
                     <CustomTextField 
@@ -79,7 +112,7 @@ export default class Layout extends React.Component{
                         name = "customerName" 
                         val={this.state.customerName}
                         inputHandler={this.textFieldsHandler}
-                        text='Enter the full customer name'
+                        // text='Enter the full customer name'
                     />  
 
                     <CustomTextField 
@@ -89,8 +122,26 @@ export default class Layout extends React.Component{
                         name = "customerAddress" 
                         val={this.state.customerAddress}
                         inputHandler={this.textFieldsHandler}
-                        text='Enter the full customer address'
+                        // text='Enter the full customer address'
                     />  
+                    <ProductsAndPrices
+                        itemsListing = {this.state.itemsListing}
+                    />
+                    <InputDescriptionAndPrice
+                        descriptionVal = {this.state.descriptionVal}
+                        priceVal = {this.state.priceVal}
+                        customHandler = {this.textFieldsHandler}
+                        buttonHandler = {this.buttonClick}
+                    />
+                    <FinalPrice
+                        itemsListing ={this.state.itemsListing}
+                    />
+                    <CustomTextArea
+                        label = 'Terms and Conditions'
+                        name = 'termsAndConditions'
+                        val = {this.state.termsAndConditions}
+                        inputHandler = {this.textFieldsHandler}
+                    />
                 </div>
             );
         }
