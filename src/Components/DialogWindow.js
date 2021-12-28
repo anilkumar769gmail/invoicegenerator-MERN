@@ -1,0 +1,35 @@
+import React from 'react';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+
+//creates the dialog box, a pop-up box to provide information
+export default class DialogBox extends React.Component{
+    constructor(props){
+        super(props);
+    }
+
+    render(){
+        return(
+            <Modal show={this.props.show}>
+                <Modal.Header>
+                    <Modal.Title>
+                        {this.props.title}
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    {this.props.content}
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button
+                      variant='primary'
+                      size='sm'
+                      onClick={this.props.closeHandler}  
+                    >
+                    Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+        );
+    }
+
+}

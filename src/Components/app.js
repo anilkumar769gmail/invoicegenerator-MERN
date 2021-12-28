@@ -19,8 +19,8 @@ export default class App extends React.Component{
                 <Routes>
                     <Route exact path='/' element={<LoadHomepage/>}/>
                     <Route path='/createinvoice' element={<LoadCreateInvoice/>}/>
-                    <Route path='/updateinvoice' element={<LoadUpdateInvoice/>}/>
-                    <Route path='/displayinvoice' element={<LoadDisplayInvoice/>}/>
+                    <Route path='/updateinvoice/:invoiceId' element={<LoadUpdateInvoice/>}/>
+                    <Route path='/displayinvoice/:invoiceId' element={<LoadDisplayInvoice/>}/>
                     <Route path='/allinvoice' element={<LoadAllInvoice/>}/>
                     <Route element={<LoadPageNotFound/>}/>
                 </Routes> 

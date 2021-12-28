@@ -8,11 +8,11 @@ export default function LoadCreateInvoice(props){
     return(
       
       <div id="createinvoice" className="jumbotron">
-        <Card>
+        <Card bg='dark' text='white'>
             <Card.Header as='h4'>
-                Create Invoice Form
+                Create Invoice
             </Card.Header>
-            <Card.Body>
+            <Card.Body style={{color:'black'}}>
                <Layout/>
             </Card.Body>
         </Card>

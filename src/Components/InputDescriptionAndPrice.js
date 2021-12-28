@@ -36,17 +36,19 @@ export default class InputDescriptionAndPrice extends React.Component{
                             inputHandler = {this.props.customHandler}
                         />
                     </Col>
-                    <Col>
+                    
+                    
+                </Row>
+                    <div>    
                         <Button 
                             variant='primary'
-                            size='lg'
+                            size='sm'
                             style = {{marginTop:'2em'}}
                             onClick ={this.props.buttonHandler}
                         >   
                             Submit Item
                         </Button>
-                    </Col>
-                </Row>
+                    </div>
             </Container>
         )
     }

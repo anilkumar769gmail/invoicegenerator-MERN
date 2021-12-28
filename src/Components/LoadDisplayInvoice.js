@@ -1,7 +1,16 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
+import DisplayInvoice from './DisplayInvoice';
 
 export default function LoadDisplayInvoice(props){
+
+    //saving the url parameter into the invoiceId constant
+    const {invoiceId} =useParams();
+
     return(
-        <h1>Welcome to my display invoice form!!!!!</h1>
+        <DisplayInvoice
+            invoiceId={invoiceId}
+        />
+        
     );
 }
