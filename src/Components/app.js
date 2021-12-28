@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Switch,Routes, Route} from 'react-router-dom';
+import {BrowserRouter,Routes, Route} from 'react-router-dom';
 //import Switch from "react-switch";
 import LoadHomepage from './LoadHomePage';
 import LoadCreateInvoice from './LoadCreateInvoice'
@@ -22,7 +22,7 @@ export default class App extends React.Component{
                     <Route path='/updateinvoice/:invoiceId' element={<LoadUpdateInvoice/>}/>
                     <Route path='/displayinvoice/:invoiceId' element={<LoadDisplayInvoice/>}/>
                     <Route path='/allinvoice' element={<LoadAllInvoice/>}/>
-                    <Route element={<LoadPageNotFound/>}/>
+                    <Route path='/*' element={<LoadPageNotFound/>}/>
                 </Routes> 
             </BrowserRouter>
         );

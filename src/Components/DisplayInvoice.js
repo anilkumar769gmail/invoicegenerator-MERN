@@ -38,6 +38,7 @@ export default class DisplayInvoice extends React.Component{
                 throw new Error();
             }
         }).then((responseAsJson) =>{
+            //state variables has the values
             this.setState({
                 sellerName: responseAsJson.sellerName,
                 sellerAddress: responseAsJson.sellerAddress,

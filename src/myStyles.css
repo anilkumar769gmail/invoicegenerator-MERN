@@ -1,8 +1,6 @@
-#createinvoice{
+#invoicebg{
     background-image: url(invoiceimage.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     height: 100vh;
-
-
 }

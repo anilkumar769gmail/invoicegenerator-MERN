@@ -14,7 +14,7 @@ export default function ButtonToInvoicesListing(props){
         <Button
             variant='primary'
             onClick={handleClick}>
-            Go Back To Invoces Listing
+            Go Back To Invoices Listing
         </Button>
     )
 }

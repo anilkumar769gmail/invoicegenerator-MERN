@@ -7,7 +7,7 @@ import Layout from './Layout';
 export default function LoadCreateInvoice(props){
     return(
       
-      <div id="createinvoice" className="jumbotron">
+      <div id="invoicebg" className="jumbotron">
         <Card bg='dark' text='white'>
             <Card.Header as='h4'>
                 Create Invoice

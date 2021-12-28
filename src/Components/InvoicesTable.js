@@ -5,8 +5,8 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ViewInvoiceButton from './ViewInvoiceButton';
-
-
+import ButtonUpdateInvoice from './BottonUpdateInvoice';
+import ButtonToHomePage from './ButtonToHomePage';
 
 export default class InvoicesTable extends React.Component{
     constructor(props){
@@ -37,12 +37,18 @@ export default class InvoicesTable extends React.Component{
                                 >
                                 Delete
                             </Button>
+                            &nbsp;&nbsp;
                             <ViewInvoiceButton
+                                invoiceId= {invoice.id}/>
+                            &nbsp;&nbsp;
+                            <ButtonUpdateInvoice
                                 invoiceId= {invoice.id}/>
                         </ButtonGroup>
                     </Col>
-                </Row>
+                </Row> 
+                
             );
+            
         })
         return(
             <Container>
@@ -51,7 +57,9 @@ export default class InvoicesTable extends React.Component{
                     <Col><h4>Description</h4></Col>
                     <Col><h4>Actions</h4></Col>
                 </Row>
+                
                 {htmlMarkup}
+                <ButtonToHomePage/>
             </Container>
         )
     }

@@ -1,8 +1,9 @@
 import React from 'react';
-
+import Homepage from './Homepage'
 
 export default function LoadHomepage(props){
     return(
-        <h1>Welcome to my home page!!!!!</h1>
+        
+       <Homepage/>
     );
 }
